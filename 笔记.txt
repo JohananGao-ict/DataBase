@@ -1,0 +1,29 @@
+数据库
+RAC
+两阶段提交原理
+PGA区
+SGA区
+SQL语言
+增：insert
+删：delete
+改；update
+查：select
+select * from tab
+distinct 重复
+desc 
+where 过滤
+like 模糊查询
+order by 排序
+asc 升序
+desc  降序
+nulls last
+alter session 修改系统参数
+DML语句数据库操作语言
+insert、delete、update、select
+DDL语句数据库定义语言
+create table
+creat view index sequence synonyn
+truncate table
+DCL语句数据库控制语言
+commit rollback savetpointe
+
