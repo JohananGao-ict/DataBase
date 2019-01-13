@@ -27,3 +27,5 @@ truncate table
 DCL语句数据库控制语言
 commit rollback savetpointe
 
+分析查询：
+explain select * from servers;
