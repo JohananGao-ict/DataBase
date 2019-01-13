@@ -37,3 +37,14 @@ phpstudy设置允许远程访问mysql数据库
 3、执行grant all privileges on *.* to 
 root@'%' identified by '密码'; 
 4、执行flush privileges;   //刷新权限
+
+
+忘记mysql密码修改my.ini文件
+[mysqld]
+skip-grant-tables
+2、重启mysql，免密码登录，修改mysql数据库的user表
+use mysql;
+update user set password=password('新密码') where user='用户名';
+例：
+update user set password=password('123') where user='root';
+
