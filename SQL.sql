@@ -1,68 +1,70 @@
 --show
---´´½¨±í
+--åˆ›å»ºè¡¨
 create table test(tid number constraint test_tid primary key, 
 tchar varchar2(20) constraint tchar_notnull not null);
---²åÈëÒ»ĞĞÊı¾İ
-insert into test values(1, ¡®name1¡¯);
---²é¿´±íËùÓĞÊı¾İ
+--æ’å…¥ä¸€è¡Œæ•°æ®
+insert into test values(1, â€˜name1â€™);
+--æŸ¥çœ‹è¡¨æ‰€æœ‰æ•°æ®
 select * from test;
---¸ü¸ÄÊı¾İ
-update test set tchar=¡®name2¡¯ where tid=1;
---É¾³ıÊı¾İ
+--æ›´æ”¹æ•°æ®
+update test set tchar=â€˜name2â€™ where tid=1;
+--åˆ é™¤æ•°æ®
 delete from test where tid=1;
 
---±íµÄ×Ö¶ÎÔöÉ¾¸Ä²é
---Ìí¼ÓÒ»ÁĞ
+--è¡¨çš„å­—æ®µå¢åˆ æ”¹æŸ¥
+--æ·»åŠ ä¸€åˆ—
 alter table test add tname varchar2(40);
---ĞŞ¸ÄÒ»ÁĞ
+--ä¿®æ”¹ä¸€åˆ—
 alter table test modify tname varchar2(20);
---ĞŞ¸ÄÁĞÃûtnameÎªmyname
+--ä¿®æ”¹åˆ—åtnameä¸ºmyname
 alter table test rename column tname to myname;
---É¾³ıÒ»ÁĞ
+--åˆ é™¤ä¸€åˆ—
 alter table test drop column  myname;
 
 
---É¾³ıÊÓÍ¼
+--åˆ é™¤è§†å›¾
 drop view viewname
 
---´´½¨Í¬Òå´Ê£¨¾ÍÊÇ±ğÃû£©
+--åˆ›å»ºåŒä¹‰è¯ï¼ˆå°±æ˜¯åˆ«åï¼‰
 create synonym ttt for test;
 
---ĞŞ¸ÄLINUXÂÒÂë
+--ä¿®æ”¹LINUXä¹±ç 
 --vi /ec/sysconfig/i18n
---echo $LANG  zh_CN.UTF-8 //ÏÔÊ¾ÊÇzh_CN,´æ´¢ÊÇUTF-8
--------ÊÂÎï»ØÍË
---rowĞĞ
+--echo $LANG  zh_CN.UTF-8 //æ˜¾ç¤ºæ˜¯zh_CN,å­˜å‚¨æ˜¯UTF-8
+-------äº‹ç‰©å›é€€
+--rowè¡Œ
 commit;
 rollback;
 
---mysql   ·ÖºÅ½áÊø£»
---Êı¾İ¿âµÄÔöÉ¾¸Ä²é
---²é¿´Êı¾İ¿âÁĞ±í
+--mysql   åˆ†å·ç»“æŸï¼›
+--æ•°æ®åº“çš„å¢åˆ æ”¹æŸ¥
+--æŸ¥çœ‹æ•°æ®åº“åˆ—è¡¨
 show databases;
---´ò¿ªÊı¾İ¿â
+--æŸ¥è¯¢å½“å‰æ­£åœ¨ä½¿ç”¨çš„æ•°æ®åº“åç§°
+select database();
+--æ‰“å¼€æ•°æ®åº“
 use xx
---É¾³ıxxÊı¾İ¿â
+--åˆ é™¤xxæ•°æ®åº“
 drop database xxx
---´´½¨xxÊı¾İ¿â
+--åˆ›å»ºxxæ•°æ®åº“
 create database xxx 
 create database xxx character set utf8
---ĞŞ¸ÄÊı¾İ¿â×Ö·û¼¯
+--ä¿®æ”¹æ•°æ®åº“å­—ç¬¦é›†
 alter database xxx character set utf8
---ÏÔÊ¾´´½¨Êı¾İ¿âµÄÓï¾äĞÅÏ¢
+--æ˜¾ç¤ºåˆ›å»ºæ•°æ®åº“çš„è¯­å¥ä¿¡æ¯
 show create database xxx
 
 
---±íµÄÔöÉ¾¸Ä²é
---ÏÔÊ¾´´½¨±íµÄÓï¾äĞÅÏ¢
+--è¡¨çš„å¢åˆ æ”¹æŸ¥
+--æ˜¾ç¤ºåˆ›å»ºè¡¨çš„è¯­å¥ä¿¡æ¯
 show create table xxx
---²é¿´Ä³¸öÊı¾İ¿âÏÂµÄÈ«²¿±í
+--æŸ¥çœ‹æŸä¸ªæ•°æ®åº“ä¸‹çš„å…¨éƒ¨è¡¨
 show tables
---¶¨ÒåÖ÷¼üÔ¼Êø primary key
---¶¨ÒåÖ÷¼ü×Ô¶¯Ôö³¤ auto_increment
---¶¨ÒåÎ¨Ò»Ô¼Êøunique
---¶¨Òå·Ç¿ÕÔ¼Êø not null
---¶¨ÒåÍâ¼üÔ¼Êø foreign key
+--å®šä¹‰ä¸»é”®çº¦æŸ primary key
+--å®šä¹‰ä¸»é”®è‡ªåŠ¨å¢é•¿ auto_increment
+--å®šä¹‰å”¯ä¸€çº¦æŸunique
+--å®šä¹‰éç©ºçº¦æŸ not null
+--å®šä¹‰å¤–é”®çº¦æŸ foreign key
 --check
 
 alter table xxx drop primary key;
