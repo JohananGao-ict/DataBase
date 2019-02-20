@@ -48,3 +48,6 @@ update user set password=password('新密码') where user='用户名';
 例：
 update user set password=password('123') where user='root';
 
+备份与恢复数据
+mysqldump –uroot –p 数据库名 > ceshi.sql
+mysql -uroot –p 新数据库名 < ceshi.sql
